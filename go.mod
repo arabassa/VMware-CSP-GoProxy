@@ -1,3 +1,3 @@
-module vmc-nsx-t-goproxy
+module vmc-csp-goproxy
 
 go 1.19

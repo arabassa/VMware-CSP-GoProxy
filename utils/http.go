@@ -10,8 +10,9 @@ import (
 func DoHttp(r *http.Request) (*http.Response, string) {
 
 	cli := Auth()
-	req, err := http.NewRequest(r.Method, cli.NsxTProxyUrl+r.URL.Path, r.Body)
-	addHttpHeader(req, "csp-auth-token", cli.AccessToken)
+	req, err := http.NewRequest(r.Method, cli.ServiceUrl+r.URL.Path, r.Body)
+	addHttpHeader(req, "csp-auth-token", cli.AccessToken)    //CSP token
+	addHttpHeader(req, "x-da-access-token", cli.AccessToken) //VCDR token
 	addHttpHeader(req, "Content-Type", "application/json")
 
 	if err != nil {

@@ -16,7 +16,7 @@ const (
 
 // Client struct to define connection details and credentials
 type Client struct {
-	NsxTProxyUrl string `json:"nsx_t_proxy_url"`
+	ServiceUrl   string `json:"service_url"`
 	CspUrl       string `json:"csp_url"`
 	Port         string `json:"port"`
 	RefreshToken string `json:"refreshtoken"`
@@ -35,7 +35,7 @@ func NewClient(clientConfig Client) *Client {
 	}
 
 	c := &Client{
-		NsxTProxyUrl: clientConfig.NsxTProxyUrl,
+		ServiceUrl:   clientConfig.ServiceUrl,
 		CspUrl:       clientConfig.CspUrl,
 		Port:         clientConfig.Port,
 		RefreshToken: clientConfig.RefreshToken,
